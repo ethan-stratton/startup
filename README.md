@@ -57,7 +57,7 @@ Finding student housing can be a stressful process, especially with so many opti
 
 ### 8. **WebSockets**
    - **Real-time Data**: WebSockets will be used to push updates to users about new listings, price changes, and apartment availability.
-   - **User Interactions**: Real-time chat for users to ask questions directly to landlords or property managers.
+   - **User Interactions**: Real-time chat for users to ask questions directly to landlords or property managers (if they let themselves become available. Also potential ability to find and contact potential roommates with this system.)
 
 ## **Mockup Designs**
 
