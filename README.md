@@ -77,4 +77,6 @@ Here are the basic sketches for the application layout:
 4. **User Profile Page**:
    - Dashboard for managing saved listings, account settings, and search preferences.
 
-_Embedded image here: (https://ninjamock.com/s/X5Q8CLx)
+<img width="1095" alt="Screenshot 2024-09-14 at 10 55 05 AM" src="https://github.com/user-attachments/assets/831d66f0-5093-4053-a356-307f7c69f144">
+
+
