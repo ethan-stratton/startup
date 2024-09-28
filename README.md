@@ -1,5 +1,9 @@
 # **Real Estate Finder for Students - Startup Deliverable**
 
+To make it easier to see what changes occurred, I'll write them briefly here:
+Added four new html pages besides index.html. They all have links to each other and represent basic functionality of a website with a login page, 
+a dashboard, a database and realtime websocket page. Though none of them have functionality yet.
+
 ## **Elevator Pitch**
 
 Finding student housing can be a stressful process, especially with so many options and limited time. Our real estate finder simplifies this by offering BYU students a seamless platform to search for affordable, student-friendly apartments, sorted by proximity to campus, budget, and amenities. Integrated with real-time data on availability and pricing, the platform ensures that students get up-to-date listings with secure login and user profiles. It's the perfect solution for college students looking for the best housing in their area without hassle.
