@@ -9,3 +9,15 @@ command to ssh into the srver:ssh -i ~/.ssh/keypaircs20.pem ubuntu@98.83.61.89 (
 
 the .pem key is saved to my .shh folder and only I can see it
 
+...
+
+Once you have developed your application to where you want it, you need to release it to your production environment. Copy the deployFiles.sh script from the Simon HTML repository to your startup repository and use startup for the service parameter (-s)
+
+./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s startup
+For example,
+
+./deployFiles.sh -k ~/keys/production.pem -h yourdomain.click -s startup
+⚠ Make sure you using a POSIX compliant console (not PowerShell or CMD) and that you run deployFiles.sh from the project directory that you want to deploy.
+
+Doing this will make this deliverable of your startup available from https://startup.yourdomainname.
+
