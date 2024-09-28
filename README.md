@@ -17,45 +17,45 @@ Finding student housing can be a stressful process, especially with so many opti
 
 ### 1. **HTML** 
    - The structure of the site will consist of several key pages:
-     - **Home**: Search bar for users to input their location or school name.
-     - **Results**: List of apartment results based on search filters.
-     - **Listing Detail Page**: Detailed view of the apartment with pricing, description, and photos.
-     - **User Profile**: A personalized dashboard for each user to manage saved listings and search preferences.
+     - **Home**: Search bar for users to input their location or school name. (so far have a home page w/ no functionality)
+     - **Results**: List of apartment results based on search filters. (no searchability yet)
+     - **Listing Detail Page**: Detailed view of the apartment with pricing, description, and photos. (.html page available, unimplemented)
+     - **User Profile**: A personalized dashboard for each user to manage saved listings and search preferences. (unimplemented outside of login)
 
 ### 2. **CSS**
-   - **Styling**: Clean, modern design using CSS Grid and Flexbox to layout the pages.
-   - **Animations**: Subtle animations on hover states for buttons and real-time search filters.
-   - **Responsiveness**: Media queries ensure that the site adjusts beautifully on mobile devices and larger screens.
+   - **Styling**: Clean, modern design using CSS Grid and Flexbox to layout the pages. (no CSS yet)
+   - **Animations**: Subtle animations on hover states for buttons and real-time search filters. (no animations yet)
+   - **Responsiveness**: Media queries ensure that the site adjusts beautifully on mobile devices and larger screens. (not implemented)
 
-### 3. **JavaScript**
+### 3. **JavaScript** (in progress)
    - **Interactivity**: Handle dynamic search filters (e.g., rent range sliders, proximity to campus), user input validation, and instant search results.
    - **API Integration**: Use JavaScript to call external services such as Google Maps for apartment locations and third-party rental APIs for pricing analytics.
    - **React Framework**: Components will manage dynamic rendering, filtering results, and updating the UI when a new search query is entered.
 
-### 4. **React**
+### 4. **React** (in progress)
    - **Single Page Application**: React will power the front-end, with different components for the home page, search results, listing detail, and user profile.
    - **Routing**: React Router will handle transitions between the pages without requiring full reloads.
    - **State Management**: State will be handled with React’s `useState` and `useEffect` hooks, ensuring that user interactions (e.g., search filters) are reflected across the app.
 
-### 5. **Web Services**
+### 5. **Web Services** (in progress)
    - **Calling External Services**: Utilize Google Maps API for real-time map displays and integrate rental pricing APIs for analyzing average rent costs.
    - **Providing Web Services**: Backend API endpoints will be created for:
      - **Get Listings**: Retrieve a list of available apartments.
      - **Save Listing**: Allow users to save a listing to their profile.
      - **User Authentication**: Register and authenticate users.
 
-### 6. **Authentication**
+### 6. **Authentication** (page available, in progress)
    - **User Registration**: Users can register with their email, username, and password. Their information is stored securely in the database.
    - **Login/Logout**: Session-based authentication, and once logged in, users can view their saved listings and personalized apartment suggestions.
    - **Display User Data**: The user’s name will be displayed in the navigation bar after login.
 
-### 7. **Database**
+### 7. **Database** (none yet)
    - **Persistent Data Storage**:
      - **Listings**: Store apartment details (e.g., name, rent, description, location) in the database.
      - **User Profiles**: Store each user’s profile information, saved listings, and search preferences.
      - **Search History**: Track and store users' previous searches to improve personalized recommendations.
 
-### 8. **WebSockets**
+### 8. **WebSockets** (none yet)
    - **Real-time Data**: WebSockets will be used to push updates to users about new listings, price changes, and apartment availability.
    - **User Interactions**: Real-time chat for users to ask questions directly to landlords or property managers (if they let themselves become available. Also potential ability to find and contact potential roommates with this system.)
 
