@@ -7,35 +7,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
+        <img src="https://img.freepik.com/free-vector/house-pin-location_24908-81998.jpg?w=1380" 
+         alt="Real Estate Logo" class="logo">
         <h1>Login</h1>
     </header>
 
-    <nav>
+    <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
     </nav>
 
-    <main>
-        <form action="dashboard.html" method="GET">
+    <main class="container">
+        <form class="login-form" action="dashboard.html" method="GET">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
             <button type="submit">Login</button>
         </form>
 
-        <div id="imagePlaceholder"></div>
-            <img src="https://via.placeholder.com/400" alt="Placeholder for real estate">
+        <div class="image-placeholder">
+            <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Real Estate">
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Student Real Estate Finder | Ethan Stratton | <a href="https://github.com/ethan-stratton/startup">GitHub</a></p>
+    <footer class="footer">
+        <p>&copy; 2024 Student Real Estate Finder | Ethan Stratton | 
+            <a href="https://github.com/ethan-stratton/startup">GitHub</a>
+        </p>
     </footer>
 </body>
 </html>

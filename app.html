@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
+        <img src="https://img.freepik.com/free-vector/house-pin-location_24908-81998.jpg?w=1380" 
+         alt="Real Estate Logo" class="logo">
         <h1>Available Apartments</h1>
         <p id="userPlaceholder">Welcome, [User's Name]</p>
     </header>
 
-    <nav>
+    <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
@@ -21,19 +23,45 @@
         </ul>
     </nav>
 
-    <main>
-        <div id="appComponent">
-            <!-- placeholder for App Component, like apartment listings with filters -->
-            <p>App component loading...</p>
-        </div>
+    <main class="container">
+        <section id="appComponent" class="app-component">
+            <h2>Explore Apartments</h2>
+            <p>Use the filters below to find your ideal apartment.</p>
+            <div class="filter-section">
+                <label for="locationFilter">Location:</label>
+                <input type="text" id="locationFilter" placeholder="Enter city or neighborhood">
+                
+                <label for="priceFilter">Max Price:</label>
+                <input type="number" id="priceFilter" placeholder="Enter max price">
 
-        <div id="imagePlaceholder"></div>
-            <img src="https://via.placeholder.com/400" alt="Placeholder for real estate">
+                <button type="button" onclick="applyFilters()">Apply Filters</button>
+            </div>
+
+            <div id="apartmentListings">
+                <p>Loading available apartments...</p>
+            </div>
+        </section>
+
+        <div class="image-placeholder">
+            <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Real Estate">
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Student Real Estate Finder | <a href="https://github.com/ethan-stratton/startup">GitHub</a></p>
+    <footer class="footer">
+        <p>&copy; 2024 Student Real Estate Finder | 
+            <a href="https://github.com/ethan-stratton/startup">GitHub</a>
+        </p>
     </footer>
+
+    <script>
+        function applyFilters() {
+            const location = document.getElementById('locationFilter').value;
+            const maxPrice = document.getElementById('priceFilter').value;
+            const listings = document.getElementById('apartmentListings');
+
+            // Placeholder logic to show applied filters.
+            listings.innerHTML = `<p>Showing apartments in: ${location || 'Any Location'}, Max Price: ${maxPrice || 'Any Price'}</p>`;
+        }
+    </script>
 </body>
 </html>

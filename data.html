@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
+        <img src="https://img.freepik.com/free-vector/house-pin-location_24908-81998.jpg?w=1380" 
+         alt="Real Estate Logo" class="logo">
         <h1>Stored Apartments</h1>
         <p id="userPlaceholder">Welcome, [User's Name]</p>
     </header>
 
-    <nav>
+    <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
@@ -21,19 +23,24 @@
         </ul>
     </nav>
 
-    <main>
-        <div id="databaseData">
-            <!-- Placeholder for database content -->
-            <p>Loading apartment data from database...</p>
-        </div>
+    <main class="container">
+        <section class="database-content">
+            <h2>Apartment Listings</h2>
+            <div id="databaseData">
+                <p>Loading apartment data from the database...</p> 
+                <!-- Dynamic content will be rendered here -->
+            </div>
+        </section>
 
-        <div id="imagePlaceholder"></div>
-            <img src="https://via.placeholder.com/400" alt="Placeholder for real estate">
+        <div class="image-placeholder">
+            <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Real Estate">
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Student Real Estate Finder | Ethan Stratton | <a href="https://github.com/ethan-stratton/startup">GitHub</a></p>
+    <footer class="footer">
+        <p>&copy; 2024 Student Real Estate Finder | Ethan Stratton | 
+            <a href="https://github.com/ethan-stratton/startup">GitHub</a>
+        </p>
     </footer>
 </body>
 </html>

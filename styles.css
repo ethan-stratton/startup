@@ -1,31 +1,341 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*for the house picture on every page*/
+.image-placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    margin: 20px 0; 
+    border: 2px solid #ddd; 
+    border-radius: 10px; 
+    overflow: hidden; /* Ensure the image fits within the border */
+    background-color: #f7f7f7; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
+.image-placeholder img {
+    width: 400px; /* Limit the width */
+    height: 400px; /* Limit the height */
+    object-fit: cover; /* Cover the entire area without distortion */
+    border-radius: 10px; /* Match the image corners to the container */
+}
+
+
+/* Main Content Styling (Centered) */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Centered Container Styling */
+.center-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    flex: 1;
+    gap: 50px;
+}
+
+/* Content Section */
+.content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.explore-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.explore-button:hover {
+    background-color: #218838;
+}
+
+/* Image Container Styling */
+.image-container {
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.preview-image {
+    width: 400px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Logo Styling */
+.logo {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* Ensure the header content aligns neatly */
+.header h1 {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+/* consistent across pages*/
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+    background-color: #333;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Menu Styling */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
 .container {
     text-align: center;
+    padding: 20px;
+    flex: 1;  /* Makes sure main content takes available space */
 }
 
 h1 {
-    color: #333;
     font-size: 3em;
     margin-bottom: 0.5em;
+    color: #333;
 }
 
 p {
     color: #666;
     font-size: 1.2em;
+    margin-bottom: 1em;
 }
 
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Placeholder Image Styles */
 .placeholder {
     margin-top: 2em;
-    padding: 1em 2em;
+    padding: 1em;
     border: 2px dashed #ccc;
     background-color: #fff;
+}
+
+.placeholder img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /*#f5f5f5*/
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .websocket-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .button {
+        width: 80%;  /* Button takes more space on smaller screens */
+    }
+}
+
+/* WebSocket Data Styling */
+.websocket-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/*Login forms and stuff*/
+
+/* Login Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px auto;
+}
+
+.login-form label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+}
+
+.login-form button:hover {
+    background-color: #555;
+}
+
+
+/* Dashboard Content Styling */
+.dashboard-content {
+    text-align: center;
+    margin: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for database content section */
+.database-content {
+    margin: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.database-content h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* App component section */
+.app-component {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.filter-section {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.filter-section input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
