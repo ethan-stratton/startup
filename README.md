@@ -26,13 +26,13 @@ Finding student housing can be a stressful process, especially with so many opti
      - **Listing Detail Page**: Detailed view of the apartment with pricing, description, and photos. (.html page available, unimplemented)
      - **User Profile**: A personalized dashboard for each user to manage saved listings and search preferences. (unimplemented outside of login)
 
-### 2. **CSS**
-   - **Styling**: Clean, modern design using CSS Grid and Flexbox to layout the pages. (no CSS yet)
-   - **Animations**: Subtle animations on hover states for buttons and real-time search filters. (no animations yet)
-   - **Responsiveness**: Media queries ensure that the site adjusts beautifully on mobile devices and larger screens. (not implemented)
+### 2. **CSS** (In progress)
+   - **Styling**: Clean, modern design using CSS Grid and Flexbox to layout the pages. (added a bunch of CSS for every page, the flexboxes are a little wonky but otherwise things look OK. Some of the navbar links are weird and should be changed down the line. Each page has some consistent CSS styling and it looks a lot better than ebfore.)
+   - **Animations**: Subtle animations on hover states for buttons and real-time search filters. (...still no animations yet)
+   - **Responsiveness**: Media queries ensure that the site adjusts beautifully on mobile devices and larger screens. (added some @media tags for phones but I've only tested them in a limited capacity. Regardless the beginnings are there)
 
 ### 3. **JavaScript** (in progress)
-   - **Interactivity**: Handle dynamic search filters (e.g., rent range sliders, proximity to campus), user input validation, and instant search results.
+   - **Interactivity**: Handle dynamic search filters (e.g., rent range sliders, proximity to campus), user input validation, and instant search results. ( added some placeholder functionality)
    - **API Integration**: Use JavaScript to call external services such as Google Maps for apartment locations and third-party rental APIs for pricing analytics.
    - **React Framework**: Components will manage dynamic rendering, filtering results, and updating the UI when a new search query is entered.
 
