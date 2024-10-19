@@ -22,11 +22,7 @@ For example,
 Doing this will make this deliverable of your startup available from https://startup.yourdomainname.
 
 Review for Midterm:
-Sure thing! I'll break this down, covering the topics step by step with examples, explanations, and tips to help you study effectively. Let's dive into them!
-
-
-
- HTML and CSS Concepts
+HTML and CSS Concepts
 
 1. What does the `<link>` element do?
    - Explanation: It links external resources to the HTML, such as CSS stylesheets.
