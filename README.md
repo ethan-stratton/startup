@@ -1,3 +1,5 @@
+TODO: Consider making your navbar stay in place and not increase or decrease in size based on which page the user navigates to
+
 # **Real Estate Finder for Students - Startup Deliverable**
 
 To make it easier to see what changes occurred, I'll write them briefly here:
