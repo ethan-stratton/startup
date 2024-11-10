@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+
+
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Data } from './data/data';
@@ -21,10 +23,10 @@ export default function App() {
           <h1>Welcome to Student Real Estate Finder</h1>
           <nav className="navbar">
             <ul className="navbar-nav">
-              <li className="nav-item"><a className="nav-link" href="index.html">Home</a></li>
+              <li className="nav-item"><NavLink className='nav-link' to='/'>Home</NavLink></li>
+              <li className="nav-item"><NavLink className='nav-link' to='login'>Login</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='dashboard'>Dashboard</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='data'>Data</NavLink></li>
-              <li className="nav-item"><NavLink className='nav-link' to='login'>Login</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='realtime'>Realtime</NavLink></li>
             </ul>
           </nav>
