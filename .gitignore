@@ -1,3 +1,4 @@
 *.pem
 *.ppk
 ~/.ssh/*
+node_modules/
