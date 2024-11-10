@@ -39,8 +39,6 @@ export default function App() {
         <Route path='*' element={<NotFound />} />
         </Routes>
 
-        
-
         {/* <main className="container text-center">
           <p>Find the best student apartments near your campus!</p>
           <a href="login.html" className="btn btn-primary mt-3">Login to explore</a>
