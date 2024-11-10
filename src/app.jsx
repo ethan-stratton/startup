@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 
-
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Data } from './data/data';
@@ -42,7 +41,7 @@ export default function App() {
 
         
 
-        <main className="container text-center">
+        {/* <main className="container text-center">
           <p>Find the best student apartments near your campus!</p>
           <a href="login.html" className="btn btn-primary mt-3">Login to explore</a>
 
@@ -53,7 +52,7 @@ export default function App() {
               className="img-fluid" 
             />
           </div>
-        </main>
+        </main> */}
 
         <footer className="footer bg-dark text-white-50 text-center py-3">
           <p>&copy; 2024 Student Real Estate Finder | Ethan Stratton | 
