@@ -6,6 +6,7 @@ import { Login } from './login/login';
 import { Data } from './data/data';
 import { Dashboard } from './dashboard/dashboard';
 import { Realtime } from './realtime/realtime';
+import { Home } from './home/home';
 
 export default function App() {
   return (
@@ -32,11 +33,12 @@ export default function App() {
         </header>
 
         <Routes>
-          <Route path='/login' element={<Login />} />
-          <Route path='/data' element={<Data />} />
-          <Route path='/realtime' element={<Realtime />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='*' element={<NotFound />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/data' element={<Data />} />
+        <Route path='/realtime' element={<Realtime />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='*' element={<NotFound />} />
         </Routes>
 
         <footer className="footer bg-dark text-white-50 text-center py-3">
