@@ -4,6 +4,9 @@ import './app.css';
 
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
+import { Data } from './data/data';
+import { Dashboard } from './dashboard/dashboard';
+import { Realtime } from './realtime/realtime';
 
 export default function App() {
     return (
@@ -19,23 +22,23 @@ export default function App() {
           <nav className="navbar">
             <ul className="navbar-nav">
               <li className="nav-item"><a className="nav-link" href="index.html">Home</a></li>
-              <li className="nav-item"><a className="nav-link" href="dashboard.html">Dashboard</a></li>
-              <li className="nav-item"><a className="nav-link" href="data.html">Data</a></li>
+              <li className="nav-item"><NavLink className='nav-link' to='dashboard'>Dashboard</NavLink></li>
+              <li className="nav-item"><NavLink className='nav-link' to='data'>Data</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='login'>Login</NavLink></li>
-              <li className="nav-item"><a className="nav-link" href="app.html">App</a></li>
+              <li className="nav-item"><NavLink className='nav-link' to='realtime'>Realtime</NavLink></li>
             </ul>
           </nav>
         </header>
         
         <Routes>
         <Route path='/login' element={<Login />} exact />
-        
-        </Routes>
-
-        {/* <Route path='/data' element={<Data />} />
+        <Route path='/data' element={<Data />} />
         <Route path='/realtime' element={<Realtime />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='*' element={<NotFound />} /> */}
+        <Route path='*' element={<NotFound />} />
+        </Routes>
+
+        
 
         <main className="container text-center">
           <p>Find the best student apartments near your campus!</p>
