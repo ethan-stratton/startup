@@ -2,8 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+
 export default function App() {
     return (
+        <BrowserRouter>
       <div className='app'>
         <header className="header">
           <img 
@@ -17,11 +21,21 @@ export default function App() {
               <li className="nav-item"><a className="nav-link" href="index.html">Home</a></li>
               <li className="nav-item"><a className="nav-link" href="dashboard.html">Dashboard</a></li>
               <li className="nav-item"><a className="nav-link" href="data.html">Data</a></li>
-              <li className="nav-item"><a className="nav-link" href="login.html">Login</a></li>
+              <li className="nav-item"><NavLink className='nav-link' to='login'>Login</NavLink></li>
               <li className="nav-item"><a className="nav-link" href="app.html">App</a></li>
             </ul>
           </nav>
         </header>
+        
+        <Routes>
+        <Route path='/login' element={<Login />} exact />
+        
+        </Routes>
+
+        {/* <Route path='/data' element={<Data />} />
+        <Route path='/realtime' element={<Realtime />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='*' element={<NotFound />} /> */}
 
         <main className="container text-center">
           <p>Find the best student apartments near your campus!</p>
@@ -42,5 +56,10 @@ export default function App() {
           </p>
         </footer>
       </div>
+      </BrowserRouter>
     );
 }
+
+function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+  }
