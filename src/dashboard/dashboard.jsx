@@ -4,13 +4,11 @@ import { NavLink } from 'react-router-dom';
 export function Dashboard() {
   return (
     <main className="container text-center">
-      {/* Welcome Message */}
       <section className="dashboard-content">
         <h1>Welcome to Your Personalized Dashboard</h1>
         <p className="lead">Manage your student apartment search, track live updates, and explore the data from our real estate database.</p>
       </section>
 
-      {/* Dashboard Features */}
       <section className="dashboard-features row text-center mt-5">
         <div className="col-md-4 mb-4">
           <div className="card">
@@ -22,7 +20,7 @@ export function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">Apartment Listings</h5>
               <p className="card-text">Browse available student apartments and find the best options for your budget and location.</p>
-              <NavLink to="/data" className="btn btn-primary">View Listings</NavLink>
+              <NavLink to="/search" className="btn btn-primary">View Listings</NavLink>
             </div>
           </div>
         </div>

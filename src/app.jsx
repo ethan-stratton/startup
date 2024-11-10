@@ -7,6 +7,7 @@ import { Data } from './data/data';
 import { Dashboard } from './dashboard/dashboard';
 import { Realtime } from './realtime/realtime';
 import { Home } from './home/home';
+import { Search } from './search/search'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
               <li className="nav-item"><NavLink className='nav-link' to='/'>Home</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='login'>Login</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='dashboard'>Dashboard</NavLink></li>
+              <li className="nav-item"><NavLink className='nav-link' to='search'>Search</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='data'>Data</NavLink></li>
               <li className="nav-item"><NavLink className='nav-link' to='realtime'>Realtime</NavLink></li>
             </ul>
@@ -36,6 +38,7 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/data' element={<Data />} />
+        <Route path='/search' element={<Search />} />\
         <Route path='/realtime' element={<Realtime />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='*' element={<NotFound />} />
