@@ -3,13 +3,11 @@ import React, { useState, useEffect } from 'react';
 export function Realtime() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
-  // Update time every second (simulating real-time functionality)
   useEffect(() => {
     const timerId = setInterval(() => {
       setTime(new Date().toLocaleTimeString());
     }, 1000);
 
-    // Clean up the timer when the component unmounts
     return () => clearInterval(timerId);
   }, []);
 

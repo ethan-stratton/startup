@@ -30,7 +30,7 @@ export function Dashboard() {
         <div className="col-md-4 mb-4">
           <div className="card">
             <img 
-              src="https://images.pexels.com/photos/1092346/pexels-photo-1092346.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2" 
+              src="https://images.pexels.com/photos/29296617/pexels-photo-29296617/free-photo-of-scenic-norwegian-fishing-village-with-boats.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
               className="card-img-top" 
               alt="Real-time Updates" 
             />
@@ -58,14 +58,7 @@ export function Dashboard() {
         </div>
       </section>
 
-      {/* Image or Background */}
-      <div className="image-placeholder mt-5">
-        <img 
-          src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-          alt="Real Estate" 
-          className="img-fluid rounded" 
-        />
-      </div>
+      
     </main>
   );
 }
