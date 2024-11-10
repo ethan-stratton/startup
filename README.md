@@ -1,6 +1,6 @@
 TODO: Consider making your navbar stay in place and not increase or decrease in size based on which page the user navigates to
 
-Recently Completed, or In Progress: 
+Recently Completed, or In Progress: Converted HTMl to React hooks and routes. Functionality no one hundred percent with each link, but the basics are present. Some minor CSS issues. Successfully bundled using Vite. Successful basic implementation of login, though no usernames or passwords are required (simply inputting anything will work) and the login info is saved in between sessions. Logging in allows the user to access other parts of the site. 
 
 # **Real Estate Finder for Students - Startup Deliverable**
 
