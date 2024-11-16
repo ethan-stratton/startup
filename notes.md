@@ -21,6 +21,10 @@ For example,
 
 Doing this will make this deliverable of your startup available from https://startup.yourdomainname.
 
+When running services, make sure both the frontend and backend are running (run npm run dev in the front end or root folder, and run node index.js in the services folder)
+
+
+
 Review for Midterm:
 HTML and CSS Concepts
 
