@@ -1,3 +1,10 @@
+/*. Search.jsx
+Purpose: This component would likely be used to search for a specific item, like a real estate listing, within the application.
+Service API calls needed:
+GET /api/search: To fetch search results from the backend.
+GET /api/filters (optional): To fetch possible filters for the search query (e.g., location, price range, etc.).*/ 
+
+
 import React, { useState } from 'react';
 
 export function Search() {

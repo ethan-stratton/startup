@@ -11,6 +11,7 @@ const users = {
   'test@example.com': { password: 'password123' },  // Example login
 };
 
+
 // Registration route: allows new users to sign up
 app.post('/api/auth/register', (req, res) => {
   const { email, password } = req.body;

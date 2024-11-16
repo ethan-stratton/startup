@@ -1,7 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export function Dashboard() {
+  const navigate = useNavigate();
+
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token from localStorage
+    navigate('/login'); // Redirect to login page
+  };
+
   return (
     <main className="container text-center">
       <section className="dashboard-content">
@@ -56,7 +64,8 @@ export function Dashboard() {
         </div>
       </section>
 
-      
+      {/* Logout Button */}
+      <button onClick={handleLogout} className="btn btn-danger mt-3">Logout</button>
     </main>
   );
 }
