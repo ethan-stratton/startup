@@ -1,6 +1,7 @@
 TODO: Consider making your navbar stay in place and not increase or decrease in size based on which page the user navigates to. Your footer is not properly afixed to the bottom of the page. You might be missing a body { height: 100vh; }
+Services: needs implementation of search, realtime, and database
 
-Recently Completed, or In Progress: Converted HTMl to React hooks and routes. Functionality no one hundred percent with each link, but the basics are present. Some minor CSS issues. Successfully bundled using Vite. Successful basic implementation of login, though no usernames or passwords are required (simply inputting anything will work) and the login info is saved in between sessions. Logging in allows the user to access other parts of the site. 
+Recently Completed, or In Progress: Login page has basic functionality
 
 # **Real Estate Finder for Students - Startup Deliverable**
 
