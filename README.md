@@ -3,6 +3,8 @@ Services: needs implementation of search, realtime, and database
 
 Recently Completed, or In Progress: Login page has basic functionality. frontend and backend call service endpoints.
 
+Potential issue: using the browser and refreshing the page causes a blank screen which occasionally says "cannot find /page". figure out issue
+
 # **Real Estate Finder for Students - Startup Deliverable**
 
 To make it easier to see what changes occurred, I'll write them briefly here:
