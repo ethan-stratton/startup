@@ -2,3 +2,4 @@
 *.ppk
 ~/.ssh/*
 node_modules/
+unused/
