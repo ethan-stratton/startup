@@ -1,7 +1,7 @@
 TODO: Consider making your navbar stay in place and not increase or decrease in size based on which page the user navigates to. Your footer is not properly afixed to the bottom of the page. You might be missing a body { height: 100vh; }
 Services: needs implementation of search, realtime, and database
 
-Recently Completed, or In Progress: Login page has basic functionality
+Recently Completed, or In Progress: Login page has basic functionality. frontend and backend call service endpoints.
 
 # **Real Estate Finder for Students - Startup Deliverable**
 
