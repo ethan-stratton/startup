@@ -1,7 +1,6 @@
 {
   "name": "startup",
   "version": "1.0.0",
-  "description": "To make it easier to see what changes occurred, I'll write them briefly here: Added four new html pages besides index.html. They all have links to each other and represent basic functionality of a website with a login page,  a dashboard, a database and realtime websocket page. Though none of them have functionality yet.",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
@@ -12,18 +11,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^5.4.10"
+    "vite": "^6.0.2"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
+    "cookie-parser": "^1.4.7",
     "esbuild": "^0.21.5",
     "express": "^4.21.1",
     "fsevents": "^2.3.3",
+    "mongodb": "^6.11.0",
     "nanoid": "^3.3.7",
     "picocolors": "^1.1.1",
     "postcss": "^8.4.47",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.5",
+    "react-bootstrap": "^2.10.6",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
     "rollup": "^4.25.0",

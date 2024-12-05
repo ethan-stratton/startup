@@ -8,8 +8,15 @@ import { Dashboard } from './dashboard/dashboard';
 import { Realtime } from './realtime/realtime';
 import { Home } from './home/home';
 import { Search } from './search/search'
+import { AuthState } from './login/authState'; //added
+
 
 export default function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
+
   return (
     <BrowserRouter>
       <div className='app'>
@@ -36,12 +43,35 @@ export default function App() {
 
         <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/data' element={<Data />} />
+        {/*<Route path='/login' element={<Login />} />*/}
+          <Route
+      path="/login"
+      element={
+        <Login
+          userName={userName}
+          authState={authState}
+          onAuthChange={(userName, authState) => {
+            setAuthState(authState);
+            setUserName(userName);
+          }}
+        />
+      }
+    />
+    {authState === AuthState.Authenticated ? (
+      <>
+      <Route path='/data' element={<Data />} />
+      <Route path='/search' element={<Search />} />
+      <Route path='/realtime' element={<Realtime />} />
+      <Route path='/dashboard' element={<Dashboard />} />
+    </>
+  ) : (
+    <Route path="*" element={<NotFound />} />
+  )}
+        {/* <Route path='/data' element={<Data />} />
         <Route path='/search' element={<Search />} />\
         <Route path='/realtime' element={<Realtime />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<NotFound />} /> */}
         </Routes>
 
         <footer className="footer bg-dark text-white-50 text-center py-3">
