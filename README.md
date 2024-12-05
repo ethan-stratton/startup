@@ -1,4 +1,4 @@
-TODO: search websocket, realtime websocket
+TODO: search websocket, realtime websocket, (unauthorized users see 404 errors on inaccessible pages, remove that)
 
 Completed: login functionality, users can log in, log out, and authorize themselves. service endpoints set up. on to websocket stuff!
 
