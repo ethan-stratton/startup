@@ -1,9 +1,10 @@
-TODO: Consider making your navbar stay in place and not increase or decrease in size based on which page the user navigates to. Your footer is not properly afixed to the bottom of the page. You might be missing a body { height: 100vh; }
-Services: needs implementation of search, realtime, and database
+TODO: search websocket, realtime websocket
 
-Recently Completed, or In Progress: Login page has basic functionality. frontend and backend call service endpoints.
+Completed: login functionality, users can log in, log out, and authorize themselves. service endpoints set up. on to websocket stuff!
 
-Potential issue: using the browser and refreshing the page causes a blank screen which occasionally says "cannot find /page". figure out issue
+Potential issue: 
+(SOLVED) using the browser and refreshing the page causes a blank screen which occasionally says "cannot find /page". figure out issue
+(SOLVED) implementation of database
 
 # **Real Estate Finder for Students - Startup Deliverable**
 
