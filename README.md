@@ -1,6 +1,6 @@
 TODO: search websocket, realtime websocket, (unauthorized users see 404 errors on inaccessible pages, remove that)
 
-Completed: login functionality, users can log in, log out, and authorize themselves. service endpoints set up. on to websocket stuff!
+Completed: basic websocket chatbox is fully functional
 
 Potential issue: 
 (SOLVED) using the browser and refreshing the page causes a blank screen which occasionally says "cannot find /page". figure out issue
