@@ -1,14 +1,23 @@
+//index.js
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const express = require('express');
-//const uuid = require('uuid');
 const app = express();
 const DB = require('./database.js');
+const { peerProxy } = require('./peerProxy.js');
+
 
 const authCookieName = 'token';
 
 // The service port may be set on the command line
+// declared below with WebSocket in mind
+//const port = process.argv.length > 2 ? process.argv[2] : 4000;
+
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
+
+server = app.listen(port, () => {
+  console.log(`Listening on ${port}`);
+});
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
@@ -75,20 +84,6 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
-// // GetScores
-// secureApiRouter.get('/scores', async (req, res) => {
-//   const scores = await DB.getHighScores();
-//   res.send(scores);
-// });
-
-// // SubmitScore
-// secureApiRouter.post('/score', async (req, res) => {
-//   const score = { ...req.body, ip: req.ip };
-//   await DB.addScore(score);
-//   const scores = await DB.getHighScores();
-//   res.send(scores);
-// });
-
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
@@ -108,74 +103,75 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-const httpService = app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+//says duplicate listener, but can't find original
 
-
-
-// const express = require('express');
-// const uuid = require('uuid');
-// const app = express();
-// const port = process.argv.length > 2 ? process.argv[2] : 4000;
-
-// // Use express.json() middleware to parse incoming JSON bodies
-// app.use(express.json());
-
-// // Mock users data (you can replace this with a real database in production)
-// const users = {
-//   'test@example.com': { password: 'password123' },  // Example login
-// };
-
-
-// // Registration route: allows new users to sign up
-// app.post('/api/auth/register', (req, res) => {
-//   const { email, password } = req.body;
-
-//   // Check if the email already exists in the "database" (users object)
-//   if (users[email]) {
-//     return res.status(409).json({ msg: 'User already exists' });
-//   }
-
-//   // Add the new user to the "database"
-//   users[email] = { password };
-
-//   // Optionally, create a new token for the new user and return it
-//   const token = uuid.v4();
-//   users[email].token = token;
-
-//   // Return a success message and the new user's token
-//   res.status(201).json({ msg: 'User registered successfully', token });
+// const httpService = app.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
 // });
 
-// // Login route: allows existing users to log in
-// app.post('/api/auth/login', (req, res) => {
-//   const { email, password } = req.body;
-//   const user = users[email];
+peerProxy(server);
 
-//   // Validate user credentials
-//   if (user && user.password === password) {
-//     // Create a new token on successful login
-//     const token = uuid.v4();
-//     user.token = token;
-//     res.json({ token });
-//   } else {
-//     res.status(401).json({ msg: 'Unauthorized' });
-//   }
+
+// WebSocket stuff
+
+// const { WebSocketServer } = require('ws');
+// // const express = require('express');
+// // const app = express();
+
+// // Serve up our webSocket client HTML
+// app.use(express.static('./public'));
+
+// // Create a websocket object
+// const wss = new WebSocketServer({ noServer: true });
+
+// // Handle the protocol upgrade from HTTP to WebSocket
+// server.on('upgrade', (request, socket, head) => {
+//   wss.handleUpgrade(request, socket, head, function done(ws) {
+//     wss.emit('connection', ws, request);
+//   });
 // });
 
-// app.post('/api/auth/logout', (req, res) => {
-//     // Optionally invalidate the token here if tracking on server side
-//     // For example, by storing a "blacklist" of invalidated tokens
-  
-//     // No actual action needed for token-based auth in this case, since the token is client-side
-//     res.status(200).send({ msg: 'Logged out successfully' });
+// // Keep track of all the connections so we can forward messages
+// let connections = [];
+// let id = 0;
+
+// wss.on('connection', (ws) => {
+//   const connection = { id: ++id, alive: true, ws: ws };
+//   connections.push(connection);
+
+//   // Forward messages to everyone except the sender
+//   ws.on('message', function message(data) {
+//     connections.forEach((c) => {
+//       if (c.id !== connection.id) {
+//         c.ws.send(data);
+//       }
+//     });
 //   });
 
-// // Serve static files (your React build) from the 'public' directory
-// app.use(express.static('public'));
+//   // Remove the closed connection so we don't try to forward anymore
+//   ws.on('close', () => {
+//     const pos = connections.findIndex((o, i) => o.id === connection.id);
 
-// // Start server
-// app.listen(port, () => {
-//   console.log(`Server running on port ${port}`);
+//     if (pos >= 0) {
+//       connections.splice(pos, 1);
+//     }
+//   });
+
+//   // Respond to pong messages by marking the connection alive
+//   ws.on('pong', () => {
+//     connection.alive = true;
+//   });
 // });
+
+// // Keep active connections alive
+// setInterval(() => {
+//   connections.forEach((c) => {
+//     // Kill any connection that didn't respond to the ping last time
+//     if (!c.alive) {
+//       c.ws.terminate();
+//     } else {
+//       c.alive = false;
+//       c.ws.ping();
+//     }
+//   });
+// }, 10000);
