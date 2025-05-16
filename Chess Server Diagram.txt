@@ -1,0 +1,145 @@
+actor Client
+participant Server
+participant Handler
+participant Service
+participant DataAccess
+database db
+
+entryspacing 0.9
+
+note right of Client: Client logs in and plays chess
+note right of Service: Check if Username exists
+
+group #navy Registration #white
+Client -> Server: [POST] /user\n{"username":" ", "password":" ", "email":" "}
+Server -> Handler: {"username":" ", "password":" ", "email":" "}
+Handler -> Service: register(RegisterRequest)
+Service -> DataAccess: getUser(username)
+DataAccess -> db: Find UserData by username
+break User with username already exists
+DataAccess --> Service: UserData
+Service --> Server: AlreadyTakenException
+Server --> Client: 403\n{"message": "Error: username already taken"}
+end
+DataAccess --> Service: null
+Service -> DataAccess: createUser(userData)
+DataAccess -> db: Add UserData
+Service -> DataAccess: createAuth(authData)
+DataAccess -> db: Add AuthData
+Service --> Handler: RegisterResult
+Handler --> Server: {"username" : " ", "authToken" : " "}
+Server --> Client: 200\n{"username" : " ", "authToken" : " "}
+end
+
+group #orange Login #white
+Client -> Server: [POST] /session\n{"username":"alice", "password":"secret"}
+Server -> Handler: {"username":"alice", "password":"secret"}
+Handler -> Service: login(LoginRequest)
+Service -> DataAccess: getUser("alice")
+DataAccess -> db: Find UserData by username
+break User not found
+DataAccess --> Service: null
+Service --> Server: NotFoundException
+Server --> Client: 401\n{"message": "Invalid username or password"}
+end
+DataAccess --> Service: UserData
+Service: validate password
+break Invalid password
+Service --> Server: AuthenticationException
+Server --> Client: 401\n{"message": "Invalid username or password"}
+end
+Service -> DataAccess: storeAuthToken(auth)
+DataAccess -> db: Add AuthData
+Service --> Handler: LoginResult
+Handler --> Server: {"username":"alice", "authToken":"..."}
+Server --> Client: 200\n{"username":"alice", "authToken":"..."}
+end
+
+group #green Logout #white
+Client -> Server: [DELETE] /session\nauthToken
+Server -> Handler: authToken
+Handler -> Service: logout(authToken)
+Service -> DataAccess: deleteAuth(authToken)
+DataAccess -> db: Remove AuthData
+Service --> Handler: LogoutResult
+Handler --> Server: 200 OK
+Server --> Client: 200\n{"message": "Logout successful"}
+end
+
+group #red List Games #white
+Client -> Server: [GET] /game\nauthToken
+Server -> Handler: authToken
+Handler -> Service: listGames(authToken)
+Service -> DataAccess: validateAuth(authToken)
+DataAccess -> db: Find AuthData
+break Invalid token
+DataAccess --> Service: null
+Service --> Server: UnauthorizedException
+Server --> Client: 401\n{"message": "Invalid auth token"}
+end
+DataAccess --> Service: AuthData
+Service -> DataAccess: getGames()
+DataAccess -> db: Retrieve all GameData
+DataAccess --> Service: GameList
+Service --> Handler: GameListResult
+Handler --> Server: GameList JSON
+Server --> Client:200\n[list of games...]
+end
+
+group #purple Create Game #white
+Client -> Server: [POST] /game\nauthToken\n{gameName}
+Server -> Handler: authToken, gameName
+Handler -> Service: createGame(authToken, gameName)
+Service -> DataAccess: validateAuth(authToken)
+DataAccess -> db: Find AuthData
+break Invalid token
+DataAccess --> Service: null
+Service --> Server: UnauthorizedException
+Server --> Client: 401\n{"message": "Invalid auth token"}
+end
+DataAccess --> Service: AuthData
+Service -> DataAccess: createGame(gameData)
+DataAccess -> db: Add GameData
+Service --> Handler: CreateGameResult
+Handler --> Server: GameInfo JSON
+Server --> Client: 200\n{gameInfo}
+end
+
+group #yellow Join Game #black
+Client -> Server: [PUT] /game\nauthToken\n{playerColor, gameID}
+Server -> Handler: authToken, joinInfo
+Handler -> Service: joinGame(JoinGameRequest)
+Service -> DataAccess: validateAuth(authToken)
+DataAccess -> db: Find AuthData
+break Invalid token
+DataAccess --> Service: null
+Service --> Server: UnauthorizedException
+Server --> Client: 401\n{"message": "Invalid auth token"}
+end
+DataAccess --> Service: AuthData
+Service -> DataAccess: getGame(gameID)
+DataAccess -> db: Find GameData
+Service: check if color taken or game full
+break Invalid join attempt
+Service --> Server: ConflictException
+Server --> Client: 409\n{"message": "Cannot join game"}
+end
+Service -> DataAccess: updateGame(gameData)
+DataAccess -> db: Update GameData
+Service --> Handler: JoinGameResult
+Handler --> Server: GameState JSON
+Server --> Client: 200\n{gameState}
+end
+
+group #gray Clear application #white
+Client -> Server: [DELETE] /db
+Server -> Handler: clearRequest
+Handler -> Service: clear()
+Service -> DataAccess: clearAll()
+DataAccess -> db: Remove all UserData, AuthData, GameData
+Service --> Handler: ClearResult
+Handler --> Server: 200 OK
+Server --> Client: 200\n{"message": "Application state cleared"}
+end
+
+// future improvements?
